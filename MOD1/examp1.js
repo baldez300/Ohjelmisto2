@@ -13,5 +13,5 @@ let ikaint = parseInt(ikastr)
 document.querySelector('#p1').innerHTML = ikastr;
 document.querySelector('#p2').innerHTML = ikaint;*/
 
-let nimi = prompt("Anna nimesi");
-document.querySelector('#p1').innerHTML = "Moi "+nimi+"!";
+let name = prompt("Give your name:");
+document.querySelector('#p1').innerHTML = "Hi, "+name+"!";

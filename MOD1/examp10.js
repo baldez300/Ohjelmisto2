@@ -22,3 +22,27 @@ for (let i = 0; i < throwCount; i++) {
 }
 document.querySelector('#target').innerHTML = 'Probability to get sum ' +sum+ ' with '+dice+ ' dice is '+probability.toFixed(2)+'%';
 
+// ================
+let total = [0,0,0,0,0,0,0,0,0,0,0,0]
+let count = [0,0,0,0,0,0,0,0,0,0,0,0]
+
+function write(){
+  let html="";
+  for(let i=2; i<=12; i++){
+    html += ("The Sum of "+i+" occurred :"+count[i]+" Times and Total : " + total[i] + "<br/>");
+  }
+
+  document.write(html, 'Balde');
+}
+
+function roll(){
+  let d1 = Math.floor(1 + Math.random() * 6);
+  let d2 = Math.floor(1 + Math.random() * 6);
+  count[d1+d2]++;
+  total[d1+d2] += d1+d2;
+}
+
+for(let i=1;i<=10000;i++)
+  roll();
+
+write();

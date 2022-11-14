@@ -6,26 +6,21 @@
 // which is asked from the user at the beginning. (2p)
 'use strict';
 
-let throwCount = parseInt(prompt("Give a number: ",21))
-let dice;
-let rollList = [];
-let html = "";
+let throwCount = parseInt(prompt("Give a number: "))
 
-function rollDice(numSides){
-  for (let i = 0; i < numSides; i++){
-    dice = Math.floor(Math.random() * 6) + 1;
-    rollList.push(dice);
-    console.log(rollList)
-
-    for (let i = 0; i < rollList.length; i++){
-      html += "<li>" + rollList[i]+ "</li>";
-    document.querySelector('#target').innerHTML = "The maximum number on the dice: " + html;
-    }
-
-    if (dice === numSides[i]){
-      break;
-    }
-  }
+let html;
+function rollDie(numberOfSides){
+ return  Math.ceil(Math.random() * numberOfSides)
 }
+function playDieGame(){
+  let dieValue= -1;
+  while (dieValue !== 6){
+    dieValue= rollDie(throwCount);
+    console.log(dieValue);
 
-rollDice(throwCount);
+    html += "<li>" + dieValue+ "</li>";
+    document.querySelector('#target').innerHTML = "The result of each roll until 6 is struck: " + html;
+  }
+
+}
+playDieGame();

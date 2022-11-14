@@ -65,8 +65,118 @@ document.querySelector('#p1').innerHTML = "Heitti noppaa " + laskuri + ' kertaa 
 
  */
 
-let noppa;
+/*let noppa;
 for (let i = 0; i < 100, i++;){
   noppa = Math.floor(Math.random() * 6) +1;
   document.querySelector('#p1').innerHTML = noppa
 }
+
+ */
+
+// Different functions
+doSomething('Kukka');
+function doSomething(someParameter){
+  console.log('Do something', someParameter);
+}
+//console.log(someParameter)
+
+const doSomethingElse = function(){
+  console.log('Do something else');
+}
+doSomethingElse();
+
+const doSomethingElseAgain = () => {
+  console.log('Do something else');
+}
+doSomethingElseAgain()
+
+let greeting = 'Hyvää yötä';
+function sayHello(toWhom, greening = 'Hyömentä'){
+  if (!greening !== ''){
+    console.log('greeting is empty');
+    return false;
+  }
+  console.log(greeting+ ' '+ toWhom);
+  return true;
+}
+sayHello('Balde', 'parametrin arvo');
+sayHello('Mamadou');
+const result = sayHello('Aku', 'fd');
+console.log(result);
+// ======================
+
+// Laskee arrayn numeeriset alkiot yhtieen ja korvaa muut arvot nollalla
+function calculateArraySum(numberArray){
+  let sum = 0;
+  for (const index in numberArray){
+    if (typeof numberArray[index]  === 'number'){
+      sum += numberArray[index];
+    } else {
+      numberArray[index] = 0;
+    }
+  }
+  console.log(numberArray);
+  return sum;
+}
+const inputArray = [1, 2, 3, 4, '5', '6', true, false ];
+const sum = calculateArraySum(inputArray);
+console.log('Taulukon summa: ', sum)
+console.log('inputArray', inputArray)
+
+
+// Tehtävä MOD 2 osa 7
+function rollDie(numberOfSides){
+ return  Math.ceil(Math.random() * numberOfSides)
+}
+function playDieGame(){
+  let dieValue= -1;
+  while (dieValue !== 6){
+    dieValue= rollDie(6);
+    console.log(dieValue);
+  }
+
+}
+playDieGame();
+
+// Tehtävä MOD 2 osa 6
+function rollDie(numberOfSides){
+ return  Math.ceil(Math.random() * numberOfSides)
+}
+function playDieGame(){
+  let resultsElem = document.getElementById('target');
+  const ulElem = document.createElement('ul');
+  resultsElem.append(ulElem);
+
+  let dieValue= -1;
+  while (dieValue !== 6){
+    dieValue= rollDie(6);
+    console.log(dieValue);
+    const liElem = document.createElement('li')
+    liElem.innerText = 'Heiton tulos: ' + dieValue;
+    ulElem.append(liElem);
+  }
+
+}
+playDieGame();
+
+// Tehtävä MOD 2 osa ...kato ope dokulta
+function rollDie(numberOfSides){
+ return  Math.ceil(Math.random() * numberOfSides)
+}
+function playDieGame(numberOfSides){
+  let resultsElem = document.getElementById('target');
+  const ulElem = document.createElement('ul');
+  resultsElem.append(ulElem);
+
+  let dieValue= -1;
+  while (dieValue !== numberOfSides){
+    dieValue= rollDie(numberOfSides);
+    console.log(dieValue);
+    const liElem = document.createElement('li')
+    liElem.innerText = 'Heiton tulos: ' + dieValue;
+    ulElem.append(liElem);
+  }
+
+}
+const dieSize = prompt('Nopan silmukän lkm');
+playDieGame(dieSize);

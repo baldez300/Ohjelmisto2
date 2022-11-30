@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TV Show Search</title>
+    <link rel="stylesheet" href="#">
+    <link rel="" href="#">
+  <script src="example1.js" defer></script>
+</head>
+<body>
+    <dialog>
+     <nav>
+         <h1 id="modelTitle">Title</h1>
+         <div id="closeModel">&#10005</div>
+     </nav>
+     <p class="loading">Loading...</p>
+     <iframe name="details" height="300" width="500" title="More details"></iframe>
+    </dialog>
+    <form action="https://api.tvmaze.com/search/shows?">
+        <label for="query"></label><input id="query" name="q" type="text"
+                                          placeholder="Search a TV show..." autocomplete="off" spellcheck="false">
+     <input type="submit" value="Search">
+    </form>
+    <div id="shows">
+        <p>No results</p>
+    </div>
+</body>
+</html>

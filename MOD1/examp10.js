@@ -1,48 +1,24 @@
 
-// Make a program that asks the user for the number of dice and
-// the sum of the eye numbers of interest to the user.
-// The purpose of your program is now to find out with
-// what probability the number of dice given by the user produces
-// the sum of the number of eyes given by the user. For example,
-// if the user enters 3 as the number of dice and 17 as the sum of the eyes,
-// the program calculates the probability that
-// the sum of the three dice's eye numbers is 17. (5p)
+// Make a program that asks the user for the number of dice and the sum of the eye numbers of interest to the user.
+// The purpose of your program is now to find out with what probability the number of dice given by the user produces the sum of the number of eyes given by the user.
+// For example, if the user enters 3 as the number of dice and 15 as the sum of the eyes, the program calculates the probability that the sum of the three dice's eye numbers is 15. (5p)
+  // Solve the problem by simulating: Have the program roll a given number of dice in a for-loop (e.g. 10,000 times) and calculate what proportion of the repetitions produced the sum of eye numbers of interest to the user.
+  // Print the result on the HTML document:
 'use strict';
 
-let throwCount = parseInt(prompt("Give a number of dice: ", 2))
-let sum = parseInt(prompt("Give a number of sum: ", 7))
+const numberOfDice = +prompt('How many dice do you want to throw?');
+const sumOfEyes = +prompt('What is the sum of the eyes you want to get?');
 
-let probability = 0;
-
-let dice;
-for (let i = 0; i < throwCount; i++) {
-  dice = Math.floor(Math.random() * 6) +1;
-  sum += dice;
-  probability = sum / dice;
-}
-document.querySelector('#target').innerHTML = 'Probability to get sum ' +sum+ ' with '+dice+ ' dice is '+probability.toFixed(2)+'%';
-
-// ================
-let total = [0,0,0,0,0,0,0,0,0,0,0,0]
-let count = [0,0,0,0,0,0,0,0,0,0,0,0]
-
-function write(){
-  let html="";
-  for(let i=2; i<=12; i++){
-    html += ("The Sum of "+i+" occurred :"+count[i]+" Times and Total : " + total[i] + "<br/>");
+let totalSums = 0;
+for (let i = 0; i < 10_000; i++){
+  let sum = 0;
+  for (let j = 0; j < numberOfDice; j++){
+    sum += Math.ceil(Math.random() * 6);
   }
-
-  document.write(html, 'Balde');
+  if (sum === sumOfEyes) totalSums++;
 }
 
-function roll(){
-  let d1 = Math.floor(1 + Math.random() * 6);
-  let d2 = Math.floor(1 + Math.random() * 6);
-  count[d1+d2]++;
-  total[d1+d2] += d1+d2;
-}
+const percentage = ((totalSums / 10_000) * 100).toFixed(2);
+console.log(percentage)
 
-for(let i=1;i<=10000;i++)
-  roll();
-
-write();
+document.querySelector('#target').textContent += `The probability to get sum ${sumOfEyes} with ${numberOfDice} dice is ${percentage}%`;

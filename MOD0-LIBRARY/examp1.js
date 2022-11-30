@@ -73,7 +73,7 @@ for (let i = 0; i < 100, i++;){
 
  */
 
-// Different functions
+/*// Different functions
 doSomething('Kukka');
 function doSomething(someParameter){
   console.log('Do something', someParameter);
@@ -102,9 +102,10 @@ function sayHello(toWhom, greening = 'Hyömentä'){
 sayHello('Balde', 'parametrin arvo');
 sayHello('Mamadou');
 const result = sayHello('Aku', 'fd');
-console.log(result);
+console.log(result); */
 // ======================
 
+/*
 // Laskee arrayn numeeriset alkiot yhtieen ja korvaa muut arvot nollalla
 function calculateArraySum(numberArray){
   let sum = 0;
@@ -136,8 +137,9 @@ function playDieGame(){
   }
 
 }
-playDieGame();
+playDieGame(); */
 
+/*
 // Tehtävä MOD 2 osa 6
 function rollDie(numberOfSides){
  return  Math.ceil(Math.random() * numberOfSides)
@@ -157,9 +159,9 @@ function playDieGame(){
   }
 
 }
-playDieGame();
+playDieGame();*/
 
-// Tehtävä MOD 2 osa ...kato ope dokulta
+/*// Tehtävä MOD 2 osa ...kato ope dokulta
 function rollDie(numberOfSides){
  return  Math.ceil(Math.random() * numberOfSides)
 }
@@ -180,3 +182,7 @@ function playDieGame(numberOfSides){
 }
 const dieSize = prompt('Nopan silmukän lkm');
 playDieGame(dieSize);
+
+*/
+
+//päivä 15.11.2022

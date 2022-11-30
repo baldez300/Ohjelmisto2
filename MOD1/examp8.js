@@ -4,6 +4,7 @@
 // Printing is done in an unordered list to the HTML document. (3p)
 'use strict';
 
+/*
 let startYear = parseInt(prompt('Give a start year like (1999): '));
 let endYear = parseInt(prompt('Give an end year like (2022): '));
 
@@ -35,3 +36,17 @@ function testLeapYear(yearChecked){
 }
 
 leapYearRange(startYear, endYear)
+
+ */
+
+// Ensimmäinen vaihtoehto on kommentoitu yllä, toinen vaihtoehto on alla.
+const startYear = +prompt('Enter the start year: ');
+const endYear = +prompt('Enter the end year: ');
+
+for (let year = startYear; year <= endYear; year++){
+    if (year % 4 === 0 && year % 100 !== 0 || year % 400 === 0){
+        const node = document.createElement('li');
+        node.textContent = "This year is a leap year:  " + year;
+        document.querySelector('ul').append(node);
+    }
+}

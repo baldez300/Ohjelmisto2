@@ -1,0 +1,169 @@
+
+body {
+  font-family: "Fredoka One", cursive;
+  color: white;
+  background: rgb(0, 0, 0);
+  margin: 0px;
+  font-weight: 100;
+}
+
+#shows {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  width: min(100% - 50px, 1200px);
+  margin-inline: auto;
+  margin-top: 25px;
+  margin-bottom: 100px;
+
+  .show {
+    position: relative;
+    border-radius: 10px;
+    width: 200px;
+    flex-grow: 1;
+    max-width: 250px;
+    padding: 10px;
+    background: rgb(30, 30, 30);
+
+    h2 {
+      margin: 0px;
+      margin-bottom: 10px;
+      text-decoration: underline;
+      font-weight: 400;
+    }
+
+    img {
+      width: 100%;
+    }
+
+    a {
+      display: block;
+      margin-bottom: 5px;
+      color: darkturquoise;
+
+      &::before {
+        content: "> "
+      }
+    }
+
+    .summary {
+      display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    }
+
+    .genres {
+      display: flex;
+      gap: 1px 10px;
+      flex-wrap: wrap;
+      margin-top: 5px;
+      background: hsl(0, 0%, 5%);
+      border-radius: 3px;
+      padding: 5px;
+
+      .genre {
+        margin: 0px;
+        &:not(:last-child)::after {
+          content: "|";
+          margin-left: 10px;
+        }
+      }
+    }
+  }
+}
+
+dialog {
+  position: fixed;
+  inset: 0px;
+  width: min(600px, calc(100% - 10px));
+  height: min(400px, calc(100% - 10px));
+  padding: 0px;
+  box-sizing: border-box;
+  background-color: black;
+  overflow: hidden;
+  &::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+  }
+
+  nav {
+    position: relative;
+    width: 100%;
+    height: 30px;
+    background: #272727;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin: 0px;
+      margin-left: 5px;
+      color: white;
+      height: max-content;
+      font-weight: 400;
+    }
+
+    #closeModel {
+      margin-right: 5px;
+      font-weight: 900;
+      color: white;
+      cursor: pointer;
+    }
+  }
+
+  .loading {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+  }
+
+  iframe {
+    position: absolute;
+    inset: 30px 0px 0px 0px;
+    width: 100%;
+    height: calc(100% - 30px);
+    border: none;
+  }
+}
+
+form {
+  position: relative;
+  width: 100%;
+  height: 50px;
+  background: #272727;
+  margin: 0px;
+  display: grid;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  input {
+    background: rgb(217, 217, 217);
+    border-radius: 50px;
+    border: none;
+    height: 35px;
+    color: black;
+    padding: 0px;
+    font-size: 18px;
+
+    &[type="text"] {
+      padding-left: 15px;
+      padding-right: 65px;
+      text-overflow: ellipsis;
+    }
+
+    &[type="submit"] {
+      position: absolute;
+      grid-column: 1 / 1;
+      right: 0px;
+      background: darkgrey;
+      padding-inline: 10px;
+      box-shadow: 0 0 8px 0px #000000f2;
+      cursor: pointer;
+    }
+  }
+}

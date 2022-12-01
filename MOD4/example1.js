@@ -67,7 +67,7 @@ searchFormElem.addEventListener('submit', async function(submitEvent) {
 
     const showContainerElement = document.createElement('div');
     showContainerElement.classList.add('show');
-    const nameElem = document.createElement('h1');
+    const nameElem = document.createElement('h3');
     nameElem.textContent = show.name;
 
     const moreDetailElem = document.createElement('a');
